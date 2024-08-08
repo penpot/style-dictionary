@@ -121,7 +121,10 @@ describe('filterTokens', () => {
       expect(property).to.not.equal(colorRed);
       expect(property).not.to.not.equal(colorBlue);
     });
-    expect(filteredDictionary.allTokens).to.eql([sizeSmall, sizeLarge]);
+    expect(filteredDictionary.allTokens).to.eql([
+      { ...sizeSmall, key: 'size.small' },
+      { ...sizeLarge, key: 'size.large' },
+    ]);
     expect(filteredDictionary.tokens).to.have.property('size');
     expect(filteredDictionary.tokens).to.not.have.property('color');
   });
@@ -133,7 +136,7 @@ describe('filterTokens', () => {
     filteredDictionary.allTokens.forEach((property) => {
       expect(property).to.not.equal(not_kept);
     });
-    expect(filteredDictionary.allTokens).to.eql([kept]);
+    expect(filteredDictionary.allTokens).to.eql([{ ...kept, key: 'kept' }]);
     expect(filteredDictionary.tokens).to.have.property('kept');
     expect(filteredDictionary.tokens).to.not.have.property('not_kept');
   });

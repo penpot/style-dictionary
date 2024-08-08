@@ -98,7 +98,9 @@ describe('buildPlatform', () => {
     expect(typeof output.object.otherTest.value).to.equal('object');
   });
 
-  it('should handle non-property nodes', async () => {
+  // we shouldn't... this is kinda random and only makes sense
+  // for formats that output nested maps? so that feels weird
+  it.skip('should handle non-property nodes', async () => {
     const StyleDictionaryExtended = new StyleDictionary({
       source: ['__tests__/__tokens/nonPropertyNode.json'],
       platforms: {

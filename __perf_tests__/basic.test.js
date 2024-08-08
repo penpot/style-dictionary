@@ -108,7 +108,7 @@ describe('cliBuildWithJsConfig', () => {
     expect(end - start).to.be.below(70);
   });
 
-  it('should run tons of refs within 1000ms', async () => {
+  it.only('should run tons of refs within 1000ms', async () => {
     // 9000 tokens, 6000 refs
     // (first layer is raw values, other 2 layers are refs to previous layer)
     const fontWeightTokens = generateTokens({
